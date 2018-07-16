@@ -6,9 +6,6 @@ import { rollup } from 'rollup';
 import clone from 'lodash/cloneDeep';
 import nodent from 'rollup-plugin-nodent';
 
-var regenerator = require('rollup-plugin-regenerator');
-var async = require('rollup-plugin-async');
-
 import { default as vueConfig, pack } from './config/rollup-plugin-vue.config';
 import bubleConfig from './config/buble.config';
 
@@ -17,16 +14,15 @@ let cache;
 const config = {
   entry: 'src/main.js',
   targets: [
-    { format: 'es', dest: `dist/${pack.name}.js` },
-    { format: 'cjs', dest: `dist/${pack.name}.common.js` },
+    { format: 'es', file: `dist/${pack.name}.js` },
+    { format: 'cjs', file: `dist/${pack.name}.common.js` },
   ],
   plugins: [
     vue(vueConfig),
     nodent(),
     buble(bubleConfig)
   ],
-  useStrict: false,
-  cache,
+  cache
 };
 
 // --- DO NOT CHANGE BEYOND THIS ---
@@ -46,7 +42,7 @@ if (vueConfig.standalone) {
 
   rollup(options).then((bundle) => bundle.write({
     format: 'iife',
-    dest: `dist/${pack.name}.min.js`,
+    file: `dist/${pack.name}.min.js`,
     moduleName: pack.name,
   }));
 }
