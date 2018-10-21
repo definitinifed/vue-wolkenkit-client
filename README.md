@@ -29,15 +29,12 @@ A vue plugin for connecting wolkenkit
 npm install --save vue-wolkenkit-client
 ```
 
-or
-
-```
-yarn add vue-wolkenkit-client
 ```
 
 ## Change log
 
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+v1.0.0
+initial commit
 
 ## Testing
 
@@ -57,6 +54,7 @@ If you discover any security related issues, please email definitinifed@gmail.co
 
 - [Fikret Büyükışık][link-author]
 - [All Contributors][link-contributors]
+- Template is created using https://github.com/znck/vue-plugin-simple
 
 ## License
 
